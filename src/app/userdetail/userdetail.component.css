@@ -73,6 +73,10 @@ button {
     margin: 10px 0px;
 }
 
+tbody tr:hover td {
+    background-color: white;
+}
+
 textarea {
     display: block;
 }

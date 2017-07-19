@@ -48,9 +48,10 @@ export class UserCommentService {
   setSaveUserComment(userComment: UserComment): Promise<UserComment> {
     const url = `${this.root}/${this.save}`;
     return this.http
-      .post(url, JSON.stringify(UserComment), this.options)
+      .post(url, JSON.stringify(userComment), this.options)
       .toPromise()
-      .then(this.extractData);
+      .then(this.extractData)
+      .catch(this.handleError);
   }
 
   private extractData(res: Response) {

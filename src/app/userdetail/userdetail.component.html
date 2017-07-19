@@ -15,9 +15,9 @@
                         <th>Something</th>
                     </tr>
                 </thead>
-                <tbody id="users">
+                <tbody id="users" *ngFor="let user of userCommentList">
                     <tr class="user">
-                        <td class="name">Paulo</td>
+                        <td class="name">{{user.comment}}</td>
                     </tr>
                 </tbody>
             </table>

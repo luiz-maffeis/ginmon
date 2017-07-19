@@ -16,7 +16,11 @@ export class UserlistComponent implements OnInit {
   constructor(private router: Router,
             private userService: UserService) { 
     this.userService.getUserList(0)
-      .then(res => this.userList = res);
+      .then(res => this.userList = res)
+      .catch(error => {
+        console.log(error);
+        this.userList = [];
+      });
   }
 
   ngOnInit() {
