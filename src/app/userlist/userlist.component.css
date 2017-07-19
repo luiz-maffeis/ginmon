@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body {
+form {
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
     font-size: 14px;
     background-color: lightblue;
@@ -70,6 +70,10 @@ th {
 th {
     font-weight: bold;
     background-color: #EEE;
+}
+
+tbody tr:hover td {
+    background-color: white;
 }
 
 label {

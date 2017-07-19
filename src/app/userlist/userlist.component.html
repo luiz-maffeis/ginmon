@@ -1,4 +1,4 @@
-<body>
+<form id="list" *ngIf="router.url =='/'">
     <header>
         <div class="container">
             <h1 class="titulo">Ginmon Programming Assignment</h1>
@@ -7,20 +7,20 @@
     <main>
         <section class="container">
             <h2>Users</h2>
-            <table>
+            <table id="list">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Profile</th>
                     </tr>
                 </thead>
-                <tbody id="users">
-                    <tr class="user">
-                        <td class="name">Paulo</td>
-                        <td class="Profile">100</td>
+                <tbody>
+                    <tr class="user" *ngFor="let user of userList" (click)="detail(user)">
+                        <td class="name">{{user.login}}</td>
+                        <td class="Profile"><a href="{{user.html_url}}" target="_blank">{{user.url}}</a></td>
                     </tr>
                 </tbody>
             </table>
         </section>
     </main>
-</body>
+</form>

@@ -1,3 +1,26 @@
-<p>
-  userdetail works!
-</p>
+<section id="detail">
+    <main *ngIf="router.url == '/detail'">
+        <section class="container">
+            <h2>Hello, my name is {{user.name}}</h2>
+            <img src="{{user.avatar_url}}" alt="user.login">
+            <label for="comment">Say something to me: </label>
+            <textarea id="comment" rows="5" cols="50" [(ngModel)]="userComment.comment"></textarea>
+            <button type="button" (click)="saveComment()">Save</button>
+            <button type="button" [routerLink]="['/']">Back</button>
+        </section>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Something</th>
+                    </tr>
+                </thead>
+                <tbody id="users">
+                    <tr class="user">
+                        <td class="name">Paulo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</section>
