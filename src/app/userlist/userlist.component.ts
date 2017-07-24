@@ -13,22 +13,39 @@ import { Router } from '@angular/router';
 export class UserlistComponent implements OnInit {
 
   userList;
+  lastUser;
   constructor(private router: Router,
             private userService: UserService) { 
+    
+  }
+
+  ngOnInit() {
     this.userService.getUserList(0)
-      .then(res => this.userList = res)
+      .then(res => {
+          this.userList = res;
+          this.lastUser = res.length;
+        })
       .catch(error => {
         console.log(error);
         this.userList = [];
       });
   }
 
-  ngOnInit() {
-  }
-
   detail(user: User){
     this.userService.setUser(user);
     this.router.navigate(['/detail']);
+  }
+
+  moreUsers(){
+    this.userService.getUserList(this.userList[this.lastUser - 1].id)
+      .then(res => {
+        this.userList = this.userList.concat(res);
+        this.lastUser = this.userList.length;
+      })
+      .catch(error => {
+        console.log(error);
+        this.userList = [];
+      });
   }
 
 }
